@@ -17,7 +17,19 @@ func _physics_process(_delta):
 	$AnimationPlayer.seek(currentTime);
 
 	var dp = Vector2((int(RIGHT) - int(LEFT)) * SPEED, (int(DOWN) - int(UP)) * SPEED);
+	try_to_move(dp);
+
+func try_to_move(dp):
 	var space_state = get_world_2d().direct_space_state;
 	var results = space_state.intersect_point(self.global_position + dp);
 	if (results.size() == 0):
 		self.position += dp;
+		return;
+	for item in results:
+		if (item.collider.has_method("push")):
+			var pushed = item.collider.push(dp);
+			if (!pushed):
+				return;
+		else:
+			return;
+	self.position += dp;

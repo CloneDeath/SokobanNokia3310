@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Wall/Walls.tres" type="TileSet" id=1]
+[ext_resource path="res://Button/Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Block/Block.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
+
+[node name="Level" type="TileMap"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 6, 6 )
+collision_use_kinematic = true
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 65536, 0, 0, 65549, 0, 0, 131072, 0, 0, 131085, 0, 0, 196608, 0, 0, 196621, 0, 0, 262144, 0, 0, 262157, 0, 0, 327680, 0, 0, 327693, 0, 0, 393216, 0, 0, 393229, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0 )
+
+[node name="Button" parent="." instance=ExtResource( 2 )]
+position = Vector2( 57, 21 )
+
+[node name="Block" parent="." instance=ExtResource( 3 )]
+position = Vector2( 45, 21 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 21, 21 )
+
