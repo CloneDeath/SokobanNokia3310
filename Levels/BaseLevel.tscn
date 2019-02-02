@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Wall/Walls.tres" type="TileSet" id=1]
 [ext_resource path="res://Button/Button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Block/Block.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/UI/Count.png" type="Texture" id=5]
 
 [node name="Level" type="TileMap"]
 tile_set = ExtResource( 1 )
@@ -20,4 +21,10 @@ position = Vector2( 45, 21 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 21, 21 )
+
+[node name="Count" type="Sprite" parent="."]
+position = Vector2( 0, 42 )
+texture = ExtResource( 5 )
+centered = false
+hframes = 10
 

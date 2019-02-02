@@ -5,13 +5,13 @@ var levels = [
 	preload("res://Levels/Level02.tscn"),
 	preload("res://Levels/Level03.tscn"),
 	preload("res://Levels/Level04.tscn"),
-	preload("res://Levels/Level06.tscn"),
-	#preload("res://Levels/Level07.tscn"),
-	#preload("res://Levels/Level08.tscn"),
-	#preload("res://Levels/Level09.tscn"),
-	#preload("res://Levels/Level10.tscn"),
 	preload("res://Levels/Level05.tscn"),
-	preload("res://Levels/YouWin.tscn"),
+	preload("res://Levels/Level06.tscn"),
+	preload("res://Levels/Level07.tscn"),
+	preload("res://Levels/Level08.tscn"),
+	preload("res://Levels/Level09.tscn"),
+	preload("res://Levels/Level10.tscn"),
+	preload("res://Levels/YouWin.tscn")
 ];
 var current_level = 0;
 var current_level_node: Node = null;
@@ -44,6 +44,7 @@ func level_complete():
 func _process(_delta):
 	if ($Animation.is_playing()): return;
 	if (Input.is_action_just_pressed("reset")):
+		$ResetSound.play();
 		load_level(current_level);
 		return;
 
