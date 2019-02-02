@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const SPEED: int = 6;
 
-var stopped = false;
+export var stopped = false;
 
 func _ready():
 	$AnimationPlayer.play("right");
@@ -24,7 +24,15 @@ func _physics_process(_delta):
 		$AnimationPlayer.play("right");
 	$AnimationPlayer.seek(currentTime);
 
-	var dp = Vector2((int(RIGHT) - int(LEFT)) * SPEED, (int(DOWN) - int(UP)) * SPEED);
+	var dp = Vector2(0, 0);
+	if (LEFT):
+		dp.x = -SPEED;
+	elif (RIGHT):
+		dp.x = SPEED;
+	elif (UP):
+		dp.y = -SPEED;
+	elif(DOWN):
+		dp.y = SPEED;
 	try_to_move(dp);
 
 func try_to_move(dp):
